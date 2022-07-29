@@ -16,16 +16,16 @@ const AppProvider = ({ children }) => {
       const response = await fetch(url)
       const data = await response.json()
       if (data.Response === 'True') {
-        console.log('setMovie')
         setMovies(data.Search)
         setError({ show: false, msg: '' })
       } else {
-        isLoading(true)
+        // setIsLoading(true)
         setError({ show: true, msg: data.Error })
       }
       setIsLoading(false)
-    } catch (error) {}
-    console.log(error)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -42,6 +42,5 @@ const AppProvider = ({ children }) => {
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }
-
 
 export { AppProvider }
