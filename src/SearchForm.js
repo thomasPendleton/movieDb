@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useGlobalContext } from './context'
 const SearchForm = () => {
+
   const { setQuery, error, query } = useGlobalContext()
-  const [input, setInput] = useState('')
-  console.log(input)
+  
+  console.log('render')
 
   useEffect(() => {
-    setQuery(input)
-  }, [input])
+    setQuery(query)
+  }, [query, setQuery])
 
   return (
     <form

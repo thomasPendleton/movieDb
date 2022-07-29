@@ -10,7 +10,7 @@ const Movies = () => {
   if (isLoading) {
     return <section className="loading"></section>
   }
-console.log(movies);
+
   return (
     <section className="movies">
       
