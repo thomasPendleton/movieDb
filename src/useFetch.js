@@ -11,12 +11,11 @@ const useFetch = (urlParams) => {
     try {
       const response = await fetch(url)
       const data = await response.json()
-     
+
       if (data.Response === 'True') {
         setMovies(data.Search || data)
         setError({ show: false, msg: '' })
       } else {
-        
         setError({ show: true, msg: data.Error })
       }
       setIsLoading(false)
@@ -29,7 +28,9 @@ const useFetch = (urlParams) => {
   }, [urlParams])
 
   return {
-    isLoading, error, movies
+    isLoading,
+    error,
+    movies,
   }
 }
 
